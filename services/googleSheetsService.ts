@@ -68,21 +68,27 @@ export const syncFromGoogleSheets = async (): Promise<OriginZone[]> => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.REACT_APP_SHEETS_API_KEY || ''}`
+        'Authorization': `Bearer ${import.meta.env.VITE_SHEETS_API_KEY || ''}`
       }
     });
 
     if (!response.ok) {
+      // If backend is not running, return empty array instead of throwing
+      if (response.status === 404 || response.status >= 500) {
+        console.warn('Backend not available, returning empty data');
+        return [];
+      }
       throw new Error(`Sync failed: ${response.statusText}`);
     }
 
     const payload: SyncWebhookPayload = await response.json();
     const zones = parseSheetDataToZones(payload.data);
-    
+
     return zones;
   } catch (error) {
-    console.error('Error syncing from Google Sheets:', error);
-    throw error;
+    console.warn('Google Sheets sync unavailable (backend not running?):', error);
+    // Return empty array so app continues to work locally
+    return [];
   }
 };
 

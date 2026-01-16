@@ -11,8 +11,10 @@ export default defineConfig(({ mode }) => {
       },
       plugins: [react()],
       define: {
-        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
+        // Google Sheets environment variables
+        'import.meta.env.VITE_SHEETS_API_KEY': JSON.stringify(env.VITE_SHEETS_API_KEY),
+        'import.meta.env.VITE_SHEETS_ID': JSON.stringify(env.VITE_SHEETS_ID),
+        'import.meta.env.VITE_SHEETS_NAME': JSON.stringify(env.VITE_SHEETS_NAME)
       },
       resolve: {
         alias: {
