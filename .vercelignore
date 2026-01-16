@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Development files
+.vscode/
+.cursor/
+
+# Build artifacts
+dist/
+
+# Documentation (optional - remove if you want to keep)
+*.md
+!README.md
+
+# Development scripts
+REFERENCE.sh
+
+# Server files (not needed for frontend deploy)
+server/
+
+# Local environment files
+.env.local
