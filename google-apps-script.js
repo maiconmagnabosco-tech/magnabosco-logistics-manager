@@ -8,7 +8,7 @@
 // Configuration
 const SHEET_ID = '1h3onr9mXLIaj6sTqEzWeQ3bi2Ct62BeENGyUMIJrn-A';
 const SHEET_NAME = 'Dados'; // Change to your sheet name if different
-const WEBHOOK_URL = 'https://your-domain.com/api/webhook/sheets-update'; // Replace with your endpoint
+const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbybO2Dv7GQCT0eypzDxO-dE9dyGr44opBDRreOCBzsHffItBF5yyzL1y6yCUon0Xxs/exec'; // Replace with your endpoint
 const API_KEY = 'your-secure-api-key'; // Replace with your API key
 
 /**
